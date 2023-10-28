@@ -2,11 +2,11 @@
 const Login = ({formData, handleChange, handleSubmit }) => {
 	return (
 		<form className="flex flex-col gap-2" onSubmit={handleSubmit} data-type="login">
-			
 			<input
 				type="email"
 				name="email"
 				placeholder="Email"
+				required
 				className="indent-3 p-2 rounded-lg"
         onChange={handleChange}
         value={formData.email}
@@ -15,6 +15,7 @@ const Login = ({formData, handleChange, handleSubmit }) => {
 				type="password"
 				name="password"
 				placeholder="Password"
+				required
 				className="indent-3 p-2 rounded-lg"
         onChange={handleChange}
         value={formData.password}
