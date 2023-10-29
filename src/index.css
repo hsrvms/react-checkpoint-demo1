@@ -4,6 +4,7 @@
 
 @layer components {
   .button {
+    font-size: clamp(.3rem, 4vw, 1rem);
     @apply text-slate-100 border border-sky-400 rounded-lg p-2 hover:scale-105;
   }
 }
