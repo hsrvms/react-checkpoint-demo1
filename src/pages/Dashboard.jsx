@@ -43,9 +43,9 @@ const Dashboard = () => {
 	const noteElements = allNotes.map((note) => (
 		<div
 			key={note.id}
-			className="flex justify-center items-center w-[32%] max-w-[270px] aspect-square bg-slate-300 rounded-xl p-4 text-center shadow-neutral-100 relative"
+			className="flex justify-center items-center w-[32%] max-w-[270px] aspect-square bg-slate-300 rounded-xl p-4 text-center shadow-neutral-100 relative overflow-auto"
 		>
-			<p>{note.body}</p>
+			<p className="flex flex-wrap">{note.body}</p>
 			<button
 				className="w-12 text-red-500 text-xs p-1 border-red-500 border rounded-lg absolute bottom-2 right-2 hover:scale-105 transition-transform"
 				onClick={() => deleteNote(note.id)}
@@ -60,25 +60,24 @@ const Dashboard = () => {
 			{currentUser.isLoggedIn ? (
 				<div className="flex flex-col w-full items-center min-h-screen bg-slate-800">
 					<div className="flex items-center gap-4 w-full p-10">
-						<h1 className="text-5xl text-blue-100 mr-auto">
+						<h1 className="text-3xl text-blue-100 mr-auto sm:text-4xl md:text-5xl">
 							Welcome {currentUser.name.toUpperCase()}
 						</h1>
 						<button
-							className="button"
+							className="button min-w-[75px]"
 							onClick={logOut}
 						>
 							Log Out
 						</button>
 					</div>
 					<form
-						className="flex flex-col justify-center items-center gap-4"
+						className="flex flex-col justify-center items-center gap-4 w-full p-4"
 						onSubmit={addNote}
 					>
 						<textarea
-							className="resize-none indent-1 p-4 rounded-sm bg-slate-100 shadow-lg"
+							className="resize-none max-w-md w-full indent-1 p-4 rounded-sm bg-slate-100 shadow-lg"
 							name="note"
 							id="note"
-							cols="60" rows="5"
 							placeholder="Take a note..."
 							value={note.body}
 							onChange={handleChange}
